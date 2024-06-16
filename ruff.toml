@@ -52,10 +52,10 @@ extend-select = [
     "D",    # pydocstyle                - checks Python docstring conventions
     ]
 
+ignore = ["ANN101", "COM812"]
 
 [lint.per-file-ignores]
 "tests/*" = ["S101"]
-"*" = ["ANN101"]
 
 fixable = ["ALL"]
 
