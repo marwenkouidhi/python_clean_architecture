@@ -38,17 +38,32 @@ target-version = "py39"
 
 [lint]
 extend-select = [
-  "E",
-  "UP",  # pyupgrade
-#   "D",   # pydocstyle
-]
+    "I",    # isort                     - sorts imports alphabetically and organizes into sections and by type
+    "F",    # Pyflakes                  - checks Python source files for errors
+    "E",    # pycodestyle Error         - tool to enforce PEP 8 style conventions
+    "W",    # pycodestyle Warning       - tool to highlight deviations from PEP 8 style conventions
+    "N",    # pep8-naming               - ensures code follows PEP 8 naming conventions
+    "UP",   # pyupgrade                 - upgrades syntax to newer Python versions automatically
+    "YTT",  # flake8-2020               - identifies misuse of sys.version or sys.version_info
+    "ANN",  # flake8-annotations        - detects the absence of PEP 3107-style function annotations
+    "COM",  # flake8-commas             - enforces comma placement rules
+    "S",    # flake8-bandit             - performs automated security testing
+    "C90",  # mccabe                    - Ned’s script to check McCabe complexity
+    "D",    # pydocstyle                - checks Python docstring conventions
+    ]
+
+
+[lint.per-file-ignores]
+"tests/*" = ["S101"]
+"*" = ["ANN101"]
+
 fixable = ["ALL"]
 
 [lint.pydocstyle]
 convention = "google"
 
 [format]
-quote-style = "double"
+quote-style = "single"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
