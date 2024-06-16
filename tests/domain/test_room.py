@@ -1,9 +1,12 @@
+"""Tests for the Room model and related functionalities."""
+
 import uuid
 
 from python_clean_architecture.domain.room import Room
 
 
-def test_room_model_init():
+def test_room_model_init() -> None:
+    """Test the initialization of the Room model."""
     code = uuid.uuid4()
     size = 5
     price = 5
@@ -24,18 +27,19 @@ def test_room_model_init():
     assert room.latitude == latitude
 
 
-def test_room_from_dict():
+def test_room_from_dict() -> None:
+    """Test creating a Room object from a dictionary."""
     code = uuid.uuid4()
     size = 5
     price = 5
     longitude = 0.4
     latitude = 0.7
     init_dict = {
-        "code": code,
-        "size": size,
-        "price": price,
-        "longitude": longitude,
-        "latitude": latitude,
+        'code': code,
+        'size': size,
+        'price': price,
+        'longitude': longitude,
+        'latitude': latitude,
     }
     room = Room.from_dict(init_dict)
 
@@ -46,26 +50,28 @@ def test_room_from_dict():
     assert room.latitude == latitude
 
 
-def test_room_to_dict():
+def test_room_to_dict() -> None:
+    """Test converting a Room object to a dictionary."""
     init_dict = {
-        "code": uuid.uuid4(),
-        "size": 5,
-        "price": 5,
-        "longitude": 0.4,
-        "latitude": 0.7,
+        'code': uuid.uuid4(),
+        'size': 5,
+        'price': 5,
+        'longitude': 0.4,
+        'latitude': 0.7,
     }
     room = Room.from_dict(init_dict)
 
     assert Room.to_dict(room) == init_dict
 
 
-def test_room_model_comparison():
+def test_room_model_comparison() -> None:
+    """Test equality comparison of Room objects."""
     init_dict = {
-        "code": uuid.uuid4(),
-        "size": 5,
-        "price": 5,
-        "longitude": 0.4,
-        "latitude": 0.7,
+        'code': uuid.uuid4(),
+        'size': 5,
+        'price': 5,
+        'longitude': 0.4,
+        'latitude': 0.7,
     }
     room1 = Room.from_dict(init_dict)
     room2 = Room.from_dict(init_dict)
